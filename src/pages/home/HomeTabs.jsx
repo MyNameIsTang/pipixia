@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 
+import {
+  withRouter
+} from 'react-router-dom'
+
 import { TabBar } from 'antd-mobile';
 import HomePage from './homepage/views/HomePage'
+import Discovery from './discovery/views/Discovery'
+import Mine from './mine/Mine'
 
 import mine from 'assets/images/mine.png'
 import home from 'assets/images/home.png'
@@ -9,16 +15,24 @@ import find from 'assets/images/find.png'
 import news from 'assets/images/news.png'
 import share from 'assets/images/share.png'
 
-export default class HomeTabs extends Component {
+class HomeTabs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'cookbook',
+      selectedTab: 'home',
       hidden: false,
-      fullScreen: true,
+      fullScreen: true
     };
   }
-
+  static getDerivedStateFromProps(nextProps, PrevState) { 
+    if (nextProps.match.params.type !== PrevState.selectedTab) {
+      return {
+        ...PrevState,
+        selectedTab: nextProps.match.params.type
+      }
+    }
+    return null
+  }
   render() {
     return (
       <div style={this.state.fullScreen ? { position: 'absolute', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
@@ -28,31 +42,32 @@ export default class HomeTabs extends Component {
           barTintColor="white"
           hidden={this.state.hidden}
         >
-          <TabBar.Item
+          <TabBar.Item  
             title="首页"
-            key="cookbook"
+            key="home"
             icon={<div style={{
               width: '0.22rem',
               height: '0.22rem',
-              background: `url(${home}) center center /  0.22rem 0.22rem no-repeat` }}
+              background: `url(${home}) center center /  0.22rem 0.22rem no-repeat`
+            }}
             />
             }
             selectedIcon={<div style={{
               width: '0.22rem',
               height: '0.22rem',
-              background: `url(${home}) center center /  0.22rem 0.22rem no-repeat` }}
+              background: `url(${home}) center center /  0.22rem 0.22rem no-repeat`
+            }}
             />
             }
-            selected={this.state.selectedTab === 'cookbook'}
+            selected={this.state.selectedTab === 'home'}
             onPress={() => {
-              this.setState({
-                selectedTab: 'cookbook',
-              });
+              this.props.history.push('/')
             }}
             data-seed="logId"
           >
             <HomePage></HomePage>
           </TabBar.Item>
+        
           <TabBar.Item
             icon={
               <div style={{
@@ -69,16 +84,14 @@ export default class HomeTabs extends Component {
               />
             }
             title="发现"
-            key="category"
-            selected={this.state.selectedTab === 'category'}
+            key="discovery"
+            selected={this.state.selectedTab === 'discovery'}
             onPress={() => {
-              this.setState({
-                selectedTab: 'category',
-              });
+              this.props.history.push('/discovery')
             }}
             data-seed="logId1"
           >
-            <div>发现</div>
+            <Discovery></Discovery>
           </TabBar.Item>
 
           <TabBar.Item
@@ -99,10 +112,7 @@ export default class HomeTabs extends Component {
             key="share"
             selected={this.state.selectedTab === 'share'}
             onPress={() => {
-              // this.setState({
-              //   selectedTab: 'share'
-              // });
-              console.log(0)
+              // this.props.history.push('/discovery')
             }}
           >
           </TabBar.Item>
@@ -123,12 +133,10 @@ export default class HomeTabs extends Component {
               />
             }
             title="消息"
-            key="map"
-            selected={this.state.selectedTab === 'map'}
+            key="news"
+            selected={this.state.selectedTab === 'news'}
             onPress={() => {
-              this.setState({
-                selectedTab: 'map',
-              });
+              this.props.history.push('/news')
             }}
           >
             <div>消息</div>
@@ -148,20 +156,24 @@ export default class HomeTabs extends Component {
                 height: '0.22rem',
                 background: `url(${mine}) center center /  0.22rem 0.22rem no-repeat` }}
               />
+             
             }
             title="我的"
-            key="more"
-            selected={this.state.selectedTab === 'more'}
+            key="mine"
+            selected={this.state.selectedTab === 'mine'}
             onPress={() => {
-              this.setState({
-                selectedTab: 'more',
-              });
+              this.props.history.push('/mine')
             }}
           >
-            <div>我的</div>
+            <Mine></Mine>
           </TabBar.Item>
         </TabBar>
       </div>
     );
   }
+  handleClick() { 
+    console.log(0)
+  }
 }
+
+export default withRouter(HomeTabs)

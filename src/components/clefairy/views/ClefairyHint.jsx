@@ -7,10 +7,6 @@ import {
   BorderedHintItem
 } from './ClefairyHintStyled'
 
-
-import hint_1 from 'assets/images/hint/hint_1.jpg'
-import hint_2 from 'assets/images/hint/hint_2.jpg'
-
 const mapState = state => ({
   hintTop: state.clefairy.hintTop,
   hidden: state.clefairy.hidden,

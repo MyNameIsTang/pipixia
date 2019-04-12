@@ -13,7 +13,7 @@ const Header = Styled.header`
     /* box-shadow:15px 0 15px -15px #faf9f9 inset,-15px 0 15px -15px #faf9f9 inset; */
     overflow:auto;
     ul{
-      width: 4.1rem;
+      width: 3.4rem;
       li{
         float:left;
         letter-spacing: .02rem;

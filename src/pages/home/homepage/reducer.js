@@ -1,17 +1,24 @@
 import { 
-  GET_RECOMMEND
+  GET_COMMON,
+  GET_ATTENTION
 } from './actionTypes'
 
 const defaultState = {
-  recommendList: {}
+  commonList: {},
+  attentionList: {},
 }
 
 export default (state = defaultState, action) => {  
   switch (action.type) {
-    case GET_RECOMMEND:
+    case GET_COMMON:
       return {
         ...state,
-        recommendList: action.list
+        commonList: action.list
+      }
+    case GET_ATTENTION:
+      return {
+        ...state,
+        attentionList: action.list
       }
     default:
       return state

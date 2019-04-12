@@ -14,7 +14,6 @@ export default class Head extends Component {
             <li><NavLink to="/home/game" activeClassName="selected">游戏</NavLink></li>
             <li><NavLink to="/home/picture" activeClassName="selected">图片</NavLink></li>
             <li><NavLink to="/home/character" activeClassName="selected">文字</NavLink></li>
-            <li><NavLink to="/home/comedy" activeClassName="selected">喜剧人</NavLink></li>
           </ul>
         </div>
         <div>

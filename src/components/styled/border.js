@@ -17,10 +17,9 @@ export default ({
       top: 0;
       left: 0;
       content: '';
-      border-bottom:${ width } ${ style } ${ color };
-      /* border-color: ${ color };
+      border-color: ${ color };
       border-style: ${ style };
-      border-width: ${ width }; */
+      border-width: ${ width };
 
       @media (max--moz-device-pixel-ratio: 1.49), 
         (-webkit-max-device-pixel-ratio: 1.49),
@@ -29,7 +28,7 @@ export default ({
         (max-resolution: 1.49dppx) {
           width: 100%;
           height: 100%;
-          border-radius: ${ radius }px;
+          border-radius: ${ radius };
         }
 
       @media (min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49),
@@ -40,7 +39,7 @@ export default ({
           width: 200%;
           height: 200%;
           transform: scale(0.5);
-          border-radius: ${ radius * 2 }px;
+          border-radius: ${ radius * 2 };
         }
 
       @media (min--moz-device-pixel-ratio: 2.5),
@@ -51,7 +50,7 @@ export default ({
           width: 300%;
           height: 300%;
           transform: scale(0.333334);
-          border-radius: ${ radius * 3 }px;
+          border-radius: ${ radius * 3 };
         }
 
       transform-origin: 0 0;

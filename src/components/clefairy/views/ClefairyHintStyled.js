@@ -51,7 +51,7 @@ const HintItem =  Styled.li`
 const BorderedHintItem = border({
   component: HintItem,
   color: '#eee',
-  width: '2px'
+  width: '0 0 2px 0'
 })
 
 

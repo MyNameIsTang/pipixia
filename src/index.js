@@ -4,6 +4,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import 'assets/css/reset.css'
+import 'video-react/dist/video-react.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
